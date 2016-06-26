@@ -17,18 +17,27 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.*;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText nameTxt/*, phoneTxt, emailTxt, addressTxt*/;
     List<OneProd> produces = new ArrayList<OneProd>();
-    ListAdapter adapter; // ArrayAdapter if problems occur
+    ArrayAdapter adapter; // ArrayAdapter if problems occur
+    FirebaseDatabase database;
+    String name;
+    int global;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle info = getIntent().getExtras();
+        name = info.getString("name");
         setContentView(R.layout.activity_main);
         adapter = new ProduceListAdapter();
         ListView listview = (ListView) findViewById(R.id.listView);
@@ -91,12 +100,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        database = FirebaseDatabase.getInstance();
+        System.out.println(database);
+        listener();
     }
 
     private void addContact(String name)
     {
         produces.add(new OneProd(name));
-        //adapter.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();
     }
 
     private class ProduceListAdapter extends ArrayAdapter<OneProd>{
@@ -120,6 +133,44 @@ public class MainActivity extends AppCompatActivity {
             return view;
         }
 
+    }
+
+    public void listener() {
+        database.getReference(name + "/ingredients").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+
+                ArrayList<String> value = (ArrayList<String>)(dataSnapshot.getValue());
+                System.out.println(value);
+//                database.getReference(name + "/count").addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(DataSnapshot dataSnapshot) {
+//                        setInt(dataSnapshot.getValue(Integer.class));
+//                        System.out.println(dataSnapshot.getValue(Integer.class));
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(DatabaseError databaseError) {
+//
+//                    }
+//                });
+                int length = global - 1;
+                System.out.println(value.get(0));
+                addContact(value.get(0));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                System.out.println("did not work :(");
+            }
+        });
+    }
+
+    public void setInt(int i) {
+        global = i;
     }
 
 }

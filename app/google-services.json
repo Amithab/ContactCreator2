@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "70696034967",
+    "firebase_url": "https://fyre-b2696.firebaseio.com",
+    "project_id": "fyre-b2696",
+    "storage_bucket": "fyre-b2696.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:70696034967:android:b9a04b989d96b921",
+        "android_client_info": {
+          "package_name": "com.examplecontactmanager2.ami.contactcreator2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "70696034967-6o6gcosli49tti4ga90510riph5288tl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBae7BYfVEMaAluZ4QPjx4FsFTVdRHjLOc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:70696034967:android:e72d23a18ddaadba",
+        "android_client_info": {
+          "package_name": "com.test.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "70696034967-6o6gcosli49tti4ga90510riph5288tl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBae7BYfVEMaAluZ4QPjx4FsFTVdRHjLOc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
