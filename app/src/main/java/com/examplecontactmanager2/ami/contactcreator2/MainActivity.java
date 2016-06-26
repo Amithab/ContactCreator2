@@ -4,52 +4,75 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText nameTxt, phoneTxt, emailTxt, addressTxt;
+    EditText nameTxt/*, phoneTxt, emailTxt, addressTxt*/;
+    List<OneProd> produces = new ArrayList<OneProd>();
+    ListAdapter adapter; // ArrayAdapter if problems occur
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        adapter = new ProduceListAdapter();
+        ListView listview = (ListView) findViewById(R.id.listView);
+        listview.setAdapter(adapter);
         nameTxt = (EditText) findViewById(R.id.txtName);
-        phoneTxt = (EditText) findViewById(R.id.txtPhone);
+        /*phoneTxt = (EditText) findViewById(R.id.txtPhone);
         emailTxt = (EditText) findViewById(R.id.txtEmail);
-        addressTxt = (EditText) findViewById(R.id.txtAddress);
+        addressTxt = (EditText) findViewById(R.id.txtAddress);*/
         TabHost tabHost1 = (TabHost) findViewById(R.id.tabHost);
 
         tabHost1.setup();
 
-        TabHost.TabSpec tabSpec = tabHost1.newTabSpec("creator");
-        tabSpec.setContent(R.id.tabCreator);
-        tabSpec.setIndicator("Creator");
+        TabHost.TabSpec tabSpec = tabHost1.newTabSpec("speak");
+        tabSpec.setContent(R.id.Speak);
+        tabSpec.setIndicator("Speak");
         tabHost1.addTab(tabSpec);
 
-        TabHost.TabSpec tabSpec2 = tabHost1.newTabSpec("list");
-        tabSpec2.setContent(R.id.tabContactList);
-        tabSpec2.setIndicator("Contact List");
+        TabHost.TabSpec tabSpec2 = tabHost1.newTabSpec("type");
+        tabSpec2.setContent(R.id.Type);
+        tabSpec2.setIndicator("Type");
         tabHost1.addTab(tabSpec2);
 
+        TabHost.TabSpec tabSpec3 = tabHost1.newTabSpec("list");
+        tabSpec3.setContent(R.id.linearLayout3);
+        tabSpec3.setIndicator("ListRecipe");
+        tabHost1.addTab(tabSpec3);
 
 
 
 
 
 
-        final Button addBtn = (Button) findViewById(R.id.btnAdd);
+
+        final Button addBtn = (Button) findViewById(R.id.btnAdd2);
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Your item has been added", Toast.LENGTH_SHORT).show();
+                addContact(nameTxt.getText().toString());
+                Toast.makeText(getApplicationContext(), nameTxt.getText().toString() + " has been added to the grocery list!", Toast.LENGTH_SHORT).show();
+                nameTxt.setText("");
             }
+
         });
+
         nameTxt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -62,10 +85,41 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {
+            public void afterTextChanged(Editable editable)
+            {
 
             }
         });
 
     }
+
+    private void addContact(String name)
+    {
+        produces.add(new OneProd(name));
+        //adapter.notifyDataSetChanged();
+    }
+
+    private class ProduceListAdapter extends ArrayAdapter<OneProd>{
+        public ProduceListAdapter()
+        {
+            super(MainActivity.this, R.layout.listview_item, produces);
+        }
+
+
+        @Override
+        public View getView(int position, View view, ViewGroup parent)
+        {
+            if(view == null)
+                view = getLayoutInflater().inflate(R.layout.listview_item, parent, false);
+
+            OneProd currentOneProd = produces.get(position);
+
+            TextView name = (TextView) view.findViewById(R.id.produceName);
+            name.setText(currentOneProd.getProduce());
+
+            return view;
+        }
+
+    }
+
 }

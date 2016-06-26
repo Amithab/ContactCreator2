@@ -10,7 +10,7 @@
 
 
     <TabHost xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@android:id/tabhost"
+        android:id="@+id/tabHost"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
           <LinearLayout
@@ -26,11 +26,40 @@
                       android:padding="5dp"
                       android:layout_weight="1">
 
-                      <LinearLayout
+                      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                           android:id="@+id/Speak"
                           android:layout_width="match_parent"
-                          android:layout_height="447dp"
-                          android:orientation="vertical"></LinearLayout>
+                          android:layout_height="match_parent"
+                          android:orientation="vertical" >
+
+                          <TextView
+                              android:id="@+id/textView1"
+                              android:layout_width="fill_parent"
+                              android:layout_height="wrap_content"
+                              android:gravity="center"
+                              android:text="Say the Ingredients"
+                              android:layout_weight="0"
+                              android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                          <LinearLayout
+                              android:layout_width="match_parent"
+                              android:layout_height="0dip"
+                              android:layout_weight="1"
+                              android:gravity="center|bottom"
+                              android:orientation="vertical" >
+
+                              <Button
+                                  android:layout_width="50dp"
+                                  android:layout_height="50dp"
+                                  android:background="@drawable/round_button"
+                                  android:gravity="center_vertical|center_horizontal"
+                                  android:text="hello"
+                                  android:textColor="#fff"
+                                  android:id="@+id/btnColor" />
+
+                          </LinearLayout>
+
+                      </LinearLayout>
 
                       <LinearLayout
                       android:id="@+id/Type"
@@ -64,13 +93,29 @@
                           android:layout_gravity="center"
                           android:layout_marginTop="10dp"
                           android:enabled="false" />
-                  </LinearLayout>
+
+                          <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textAppearance="?android:attr/textAppearanceLarge"
+                              android:text="Your Current List"
+                              android:id="@+id/textView"
+                              android:layout_gravity="center"
+                              android:layout_marginTop="15dp" />
+
+                          <ListView
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/listView"
+                              android:layout_gravity="center_horizontal" />
+                      </LinearLayout>
 
                       <LinearLayout
                           android:id="@+id/linearLayout3"
                           android:layout_width="match_parent"
                           android:layout_height="match_parent"
                           android:orientation="vertical"></LinearLayout>
+
                   </FrameLayout>
 
 
