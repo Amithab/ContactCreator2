@@ -13,6 +13,7 @@
         android:id="@+id/tabHost"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
+
           <LinearLayout
                   android:orientation="vertical"
                   android:layout_width="fill_parent"
@@ -25,6 +26,23 @@
                       android:layout_height="wrap_content"
                       android:padding="5dp"
                       android:layout_weight="1">
+
+
+                      <LinearLayout
+                          android:id="@+id/linearLayout3"
+                          android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical">
+
+
+                          <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textAppearance="?android:attr/textAppearanceLarge"
+                              android:text="Recipes"
+                              android:id="@+id/textView2"
+                              android:layout_gravity="center_horizontal" />
+                      </LinearLayout>
 
                       <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                           android:id="@+id/Speak"
@@ -109,12 +127,6 @@
                               android:id="@+id/listView"
                               android:layout_gravity="center_horizontal" />
                       </LinearLayout>
-
-                      <LinearLayout
-                          android:id="@+id/linearLayout3"
-                          android:layout_width="match_parent"
-                          android:layout_height="match_parent"
-                          android:orientation="vertical"></LinearLayout>
 
                   </FrameLayout>
 
