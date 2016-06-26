@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.examplecontactmanager2.ami.contactcreator2.MainActivity"
+    android:orientation="vertical"
+    android:longClickable="false">
+
+
+
+    <TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@android:id/tabhost"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+          <LinearLayout
+                  android:orientation="vertical"
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent"
+                  android:padding="5dp">
+
+                  <FrameLayout
+                      android:id="@android:id/tabcontent"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:padding="5dp"
+                      android:layout_weight="1">
+
+                      <LinearLayout
+                          android:id="@+id/Speak"
+                          android:layout_width="match_parent"
+                          android:layout_height="447dp"
+                          android:orientation="vertical"></LinearLayout>
+
+                      <LinearLayout
+                      android:id="@+id/Type"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textAppearance="?android:attr/textAppearanceLarge"
+                          android:text="EZRecipe"
+                          android:id="@+id/IblCreatorTitle"
+                          android:layout_marginTop="10dp"
+                          android:layout_gravity="center" />
+
+                      <EditText
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          android:inputType="textPersonName"
+                          android:ems="10"
+                          android:id="@+id/txtName"
+                          android:layout_marginTop="15dp"
+                          android:hint="Enter produce here" />
+
+                      <Button
+                          android:layout_width="200dp"
+                          android:layout_height="wrap_content"
+                          android:text="Add Produce"
+                          android:id="@+id/btnAdd2"
+                          android:layout_gravity="center"
+                          android:layout_marginTop="10dp"
+                          android:enabled="false" />
+                  </LinearLayout>
+
+                      <LinearLayout
+                          android:id="@+id/linearLayout3"
+                          android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"></LinearLayout>
+                  </FrameLayout>
+
+
+
+                  <TabWidget
+                      android:id="@android:id/tabs"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="0"
+                      android:layout_marginBottom="-4dp"/>
+
+              </LinearLayout>
+
+
+          </TabHost>
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>
+
+
