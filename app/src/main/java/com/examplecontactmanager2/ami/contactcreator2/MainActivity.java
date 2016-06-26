@@ -1,5 +1,9 @@
 package com.examplecontactmanager2.ami.contactcreator2;
 
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.media.Image;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +16,7 @@ import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TabHost;
@@ -25,12 +30,13 @@ public class MainActivity extends AppCompatActivity {
 
     EditText nameTxt/*, phoneTxt, emailTxt, addressTxt*/;
     List<OneProd> produces = new ArrayList<OneProd>();
-    ListAdapter adapter; // ArrayAdapter if problems occur
+    ArrayAdapter adapter; // ArrayAdapter if problems occur
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("EZRecipe");
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#009688")));
         setContentView(R.layout.activity_main);
         adapter = new ProduceListAdapter();
         ListView listview = (ListView) findViewById(R.id.listView);
@@ -58,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         tabSpec3.setContent(R.id.linearLayout3);
         tabSpec3.setIndicator("Recipe");
         tabHost1.addTab(tabSpec3);
+
 
 
 
@@ -96,10 +103,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void takeMe(View view)
+    {
+        Intent intent = new Intent(this, DisplayTalkPlace.class);
+        startActivity(intent);
+    }
+
     private void addContact(String name)
     {
         produces.add(new OneProd(name));
-        //adapter.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();
     }
 
     private class ProduceListAdapter extends ArrayAdapter<OneProd>{
