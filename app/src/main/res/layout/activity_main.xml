@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -28,22 +30,6 @@
                       android:layout_weight="1">
 
 
-                      <LinearLayout
-                          android:id="@+id/linearLayout3"
-                          android:layout_width="match_parent"
-                          android:layout_height="match_parent"
-                          android:orientation="vertical">
-
-
-                          <TextView
-                              android:layout_width="wrap_content"
-                              android:layout_height="wrap_content"
-                              android:textAppearance="?android:attr/textAppearanceLarge"
-                              android:text="Recipes"
-                              android:id="@+id/textView2"
-                              android:layout_gravity="center_horizontal" />
-                      </LinearLayout>
-
                       <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                           android:id="@+id/Speak"
                           android:layout_width="match_parent"
@@ -66,21 +52,52 @@
                               android:gravity="center|bottom"
                               android:orientation="vertical" >
 
-                              <Button
-                                  android:layout_width="50dp"
-                                  android:layout_height="50dp"
-                                  android:background="@drawable/round_button"
-                                  android:gravity="center_vertical|center_horizontal"
-                                  android:text="hello"
-                                  android:textColor="#fff"
-                                  android:id="@+id/btnColor" />
+
+                              <RelativeLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+
+                                  <Button
+                                      android:layout_width="wrap_content"
+                                      android:layout_height="wrap_content"
+                                      android:text="Record Now"
+                                      android:id="@+id/button"
+                                      android:layout_gravity="center_horizontal"
+                                      android:width="250dp"
+                                      android:height="175dp"
+                                      android:layout_centerVertical="true"
+                                      android:layout_centerHorizontal="true"
+                                      android:textSize="100px"
+                                      android:background="#f44336"
+                                      android:onClick="takeMe"
+                                      android:textColor="#ffffff" />
+
+                              </RelativeLayout>
 
                           </LinearLayout>
 
                       </LinearLayout>
 
                       <LinearLayout
+                          android:id="@+id/linearLayout3"
+                          android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical">
+
+
+                          <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textAppearance="?android:attr/textAppearanceLarge"
+                              android:text="Recipes"
+                              android:id="@+id/textView2"
+                              android:layout_gravity="center_horizontal" />
+                      </LinearLayout>
+
+                      <LinearLayout
+
                       android:id="@+id/Type"
+
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       android:orientation="vertical">
@@ -137,7 +154,7 @@
                       android:layout_width="fill_parent"
                       android:layout_height="wrap_content"
                       android:layout_weight="0"
-                      android:layout_marginBottom="-4dp"/>
+                      android:layout_marginBottom="0dp"/>
 
               </LinearLayout>
 
