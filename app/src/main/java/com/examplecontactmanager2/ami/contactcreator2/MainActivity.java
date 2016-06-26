@@ -1,5 +1,6 @@
 package com.examplecontactmanager2.ami.contactcreator2;
 
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("EZRecipe");
         setContentView(R.layout.activity_main);
         adapter = new ProduceListAdapter();
         ListView listview = (ListView) findViewById(R.id.listView);
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         /*phoneTxt = (EditText) findViewById(R.id.txtPhone);
         emailTxt = (EditText) findViewById(R.id.txtEmail);
         addressTxt = (EditText) findViewById(R.id.txtAddress);*/
+
         TabHost tabHost1 = (TabHost) findViewById(R.id.tabHost);
 
         tabHost1.setup();
@@ -53,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         TabHost.TabSpec tabSpec3 = tabHost1.newTabSpec("list");
         tabSpec3.setContent(R.id.linearLayout3);
-        tabSpec3.setIndicator("ListRecipe");
+        tabSpec3.setIndicator("Recipe");
         tabHost1.addTab(tabSpec3);
 
 
